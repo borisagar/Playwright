@@ -3,7 +3,7 @@ export class LoginTestData {
     username: 'invalidUser',
     password: 'invalidPassword',
   };
-  static readonly  VALID_USER = {
+  static readonly VALID_USER = {
     username: 'practice',
     password: 'SuperSecretPassword!',
   };

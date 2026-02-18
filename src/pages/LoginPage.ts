@@ -12,9 +12,7 @@ export class LoginPage {
 
   // ACTIONS
   public async navigateToLogin(): Promise<void> {
-    await this.uiActions.navigateTo(
-      '/login'
-    );
+    await this.uiActions.navigateTo('/login');
   }
 
   public async login(username: string, password: string): Promise<void> {
@@ -25,26 +23,14 @@ export class LoginPage {
 
   // VERIFICATIONS
   public async verifyMessage(expectedMessage: string): Promise<void> {
-    const actualMessage = await this.uiActions.getText(
-      LoginPageLocators.MESSAGE
-    );
+    const actualMessage = await this.uiActions.getText(LoginPageLocators.MESSAGE);
 
-    await AssertUtils.assertEquals(
-      actualMessage,
-      expectedMessage,
-      'Login error message mismatch'
-    );  
+    await AssertUtils.assertEquals(actualMessage, expectedMessage, 'Login error message mismatch');
   }
 
   public async verifyHeader(expectedHeader: string): Promise<void> {
-    const actualHeader = await this.uiActions.getText(
-      LoginPageLocators.HEADER
-    );
+    const actualHeader = await this.uiActions.getText(LoginPageLocators.HEADER);
 
-    await AssertUtils.assertEquals(
-      actualHeader,
-      expectedHeader,
-      'Header text mismatch'
-    );
+    await AssertUtils.assertEquals(actualHeader, expectedHeader, 'Header text mismatch');
   }
 }
