@@ -1,7 +1,6 @@
 // src/helper/actions/PageActions.ts
 
 import { BrowserContext, Page } from '@playwright/test';
-//import { Logger } from '@playwright/test';
 import { Logger } from '../logger/Logger';
 import { pageFixture } from '../../support/PageFixeture';
 

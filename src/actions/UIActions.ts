@@ -1,7 +1,12 @@
 import { Page, Locator } from '@playwright/test';
+import { pageFixture } from '../support/PageFixeture';
 
 export class UIActions {
-  constructor(private readonly page: Page) {}
+  private readonly page: Page;
+
+  constructor() {
+    this.page = pageFixture.page;
+  }
 
   public async navigateTo(url: string): Promise<void> {
     //await this.page.goto(url, {timeout:60000});  //manual wait for 60 seconds, to avoid timeout error for slow loading pages

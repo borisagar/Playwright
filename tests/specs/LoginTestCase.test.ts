@@ -1,10 +1,15 @@
-import { test } from "@playwright/test";
+import { test } from "../../src/config/PageSetup";
 import { LoginPage } from "../../src/pages/LoginPage";
 import { LoginTestData } from "../../src/test-data/LoginTestData";
+import { setPageFixture } from "../../src/support/PageFixeture";
 
 test.describe("Login validation", () => {
-  test("should show error for invalid credentials", async ({ page }) => {
-    const loginPage = new LoginPage(page);
+  test.beforeEach(async ({ page, context, browser }) => {
+    setPageFixture({ browser, context, page });
+  });
+
+  test("should show error for invalid credentials", async () => {
+    const loginPage = new LoginPage();
 
     await loginPage.navigateToLogin();
     await loginPage.login(
@@ -14,8 +19,8 @@ test.describe("Login validation", () => {
     await loginPage.verifyMessage("Your password is invalid!");
   });
 
-  test("should login successfully with valid credentials", async ({ page }) => {
-    const loginPage = new LoginPage(page);
+  test("should login successfully with valid credentials", async () => {
+    const loginPage = new LoginPage();
 
     await loginPage.navigateToLogin();
     await loginPage.login(

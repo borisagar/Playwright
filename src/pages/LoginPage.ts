@@ -6,8 +6,8 @@ import { LoginPageLocators } from './locators/LoginPageLocators';
 export class LoginPage {
   private readonly uiActions: UIActions;
 
-  constructor(page: Page) {
-    this.uiActions = new UIActions(page);
+  constructor() {
+    this.uiActions = new UIActions();
   }
 
   // ACTIONS
