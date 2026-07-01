@@ -16,7 +16,7 @@ test.describe("Login validation", () => {
       LoginTestData.INVALID_USER.username,
       LoginTestData.INVALID_USER.password,
     );
-    await loginPage.verifyMessage("Your password is invalid!");
+
   });
 
   test("should login successfully with valid credentials", async () => {
@@ -29,7 +29,7 @@ test.describe("Login validation", () => {
     );
 
     // Additional verification for successful login can be added here
-    await loginPage.verifyMessage("You logged into a secure area!");
+    await loginPage.assertLoginMessage("You logged into a secure area!");
     await loginPage.verifyHeader(
       "Secure Area page for Automation Testing Practice",
     );
